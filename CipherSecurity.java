@@ -25,6 +25,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.geometry.Insets;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -59,6 +60,26 @@ public class CipherSecurity extends Application {
             }
         });
         
+        Button editBtn = new Button();
+        editBtn.setText("Edit");
+        editBtn.setOnAction(new EventHandler<ActionEvent>() {
+            
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("Edit");
+            }
+        });
+        
+        Button newBtn = new Button();
+        newBtn.setText("New");
+        newBtn.setOnAction(new EventHandler<ActionEvent>() {
+            
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("New");
+            }
+        });
+        
 //        StackPane root = new StackPane();
 //        root.getChildren().add(label);
 //        root.getChildren().add(btn);
@@ -69,15 +90,29 @@ public class CipherSecurity extends Application {
         VBox siteVBox = new VBox();
         ScrollPane siteScrPane = new ScrollPane();
         BorderPane settingsOpenPane = new BorderPane();
+        BorderPane editNew = new BorderPane();
+        HBox editNewHor = new HBox();
         
         borderRoot.setCenter(resultsPane);
         borderRoot.setLeft(siteScrPane);
         borderRoot.setTop(settingsOpenPane);
+        borderRoot.setBottom(editNew);
         borderRoot.setPadding(new Insets(0, 10, 0, 10));
         
-        settingsOpenPane.setLeft(openBtn);
-        settingsOpenPane.setRight(settingsBtn);
+        String font = "Times New Roman";
+        
+        Font lblFont = new Font(font, 32.00);
+        label.setFont(lblFont);
+        settingsOpenPane.setLeft(label);
+        //settingsOpenPane.setBackground(new Background("061ca1"));
+        //settingsOpenPane.setRight(settingsBtn);
         settingsOpenPane.setPadding(new Insets(10, 10, 10, 10));
+        
+        editNew.setRight(editNewHor);
+        editNewHor.getChildren().add(editBtn);
+        editNewHor.getChildren().add(newBtn);
+        editNewHor.setPadding(new Insets(10,10,10,10));
+        editNewHor.setSpacing(10.00);
         
         siteVBox.setPadding(new Insets(10, 10, 10, 10));
         
@@ -88,54 +123,54 @@ public class CipherSecurity extends Application {
         resultsPane.setPadding(new Insets(20, 20, 20, 20));
 
         Text usrNameTitle = new Text("User Name:");
-        usrNameTitle.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+        usrNameTitle.setFont(Font.font(font, FontWeight.BOLD, 20));
         resultsPane.add(usrNameTitle, 1, 0); 
 
         Text usrNameText = new Text("");
-        usrNameText.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+        usrNameText.setFont(Font.font(font, FontWeight.BOLD, 20));
         resultsPane.add(usrNameText, 2, 0);
         
         Text passwordTitle = new Text("Password:");
-        passwordTitle.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+        passwordTitle.setFont(Font.font(font, FontWeight.BOLD, 20));
         resultsPane.add(passwordTitle, 1, 1); 
 
         Text passwordText = new Text("");
-        passwordText.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+        passwordText.setFont(Font.font(font, FontWeight.BOLD, 20));
         resultsPane.add(passwordText, 2, 1);
         
         FileContentConverter testContent = new FileContentConverter("testFile");
         List<UserNamePassword> siteList= testContent.getSites();        
         Iterator siteListIter = siteList.iterator();
         
-        List<Button> siteBtns = new ArrayList<Button>();
+        List<Text> siteTxts = new ArrayList<Text>();
         
         int i = 0;
         while(siteListIter.hasNext()){
-            Button siteBtn = new Button();
+            Text siteTxt = new Text();
             
             UserNamePassword usrNamePass = (UserNamePassword)siteListIter.next();
-            siteBtn.setText(usrNamePass.getSiteName());
+            siteTxt.setText(usrNamePass.getSiteName());
             
             
-            siteBtn.setOnAction(new EventHandler<ActionEvent>() {
+            siteTxt.setOnMouseClicked(new EventHandler<MouseEvent>() {
             
                 @Override
-                public void handle(ActionEvent event) {
+                public void handle(MouseEvent event) {
                     usrNameText.setText(usrNamePass.getUserName());
                     passwordText.setText(usrNamePass.getPassword());
                 }
             });
             
-            siteBtns.add(siteBtn);
+            siteTxts.add(siteTxt);
             
-            siteVBox.getChildren().add(siteBtns.get(i));
+            siteVBox.getChildren().add(siteTxts.get(i));
             
             i++;
         }
         
         //Button[] btnArr = (Button[])siteBtns.toArray();
         
-        Scene scene = new Scene(borderRoot, 300, 250);
+        Scene scene = new Scene(borderRoot, 400, 500);
         
         primaryStage.setTitle("Cipher Security: Passwords Saver");
         primaryStage.setScene(scene);
