@@ -26,6 +26,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.geometry.Insets;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
@@ -104,7 +108,8 @@ public class CipherSecurity extends Application {
         Font lblFont = new Font(font, 32.00);
         label.setFont(lblFont);
         settingsOpenPane.setLeft(label);
-        //settingsOpenPane.setBackground(new Background("061ca1"));
+        settingsOpenPane.setBackground(new Background(new BackgroundFill(
+                Color.CORNFLOWERBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
         //settingsOpenPane.setRight(settingsBtn);
         settingsOpenPane.setPadding(new Insets(10, 10, 10, 10));
         
