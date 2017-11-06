@@ -25,6 +25,10 @@ import javafx.scene.text.Text;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.effect.Reflection;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -70,6 +74,7 @@ public class CipherSecurity extends Application {
             
             @Override
             public void handle(ActionEvent event) {
+                
                 System.out.println("Edit");
             }
         });
@@ -107,6 +112,8 @@ public class CipherSecurity extends Application {
         
         Font lblFont = new Font(font, 32.00);
         label.setFont(lblFont);
+        
+        label.setTextFill(Color.WHITE);
         settingsOpenPane.setLeft(label);
         settingsOpenPane.setBackground(new Background(new BackgroundFill(
                 Color.CORNFLOWERBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
@@ -177,9 +184,64 @@ public class CipherSecurity extends Application {
         
         Scene scene = new Scene(borderRoot, 400, 500);
         
+        
+        
+        StackPane entryPane = new StackPane();
+        VBox entryBox = new VBox();
+        HBox entryHBox = new HBox();
+        HBox entryHBox2 = new HBox();
+        HBox entryHBox3 = new HBox();
+        VBox entryVBox2 = new VBox();
+        entryVBox2.prefWidth(40);
+        VBox entryVBox3 = new VBox();
+        entryVBox3.prefWidth(40);
+        VBox entryVBox4 = new VBox();
+        entryVBox2.prefWidth(40);
+        VBox entryVBox5 = new VBox();
+        entryVBox3.prefWidth(40);
+        
+        entryHBox.getChildren().addAll(entryVBox2, entryVBox3);
+        entryHBox2.getChildren().addAll(entryVBox4, entryVBox5);
+        entryBox.getChildren().addAll(entryHBox, entryHBox2, entryHBox3);
+        entryPane.getChildren().add(entryBox);
+        
+        Label entryUNLabel = new Label("User Name: ");
+        entryUNLabel.setMinWidth(70);
+        entryVBox2.getChildren().add(entryUNLabel);
+        entryVBox2.setAlignment(Pos.CENTER_RIGHT);
+        
+        TextField entryUserName = new TextField();
+        entryVBox3.getChildren().add(entryUserName);
+        
+        Label entryPWLabel = new Label("Password: ");
+        entryPWLabel.setMinWidth(70);
+        entryVBox4.getChildren().add(entryPWLabel);
+        entryVBox4.setAlignment(Pos.CENTER_RIGHT);
+        
+        PasswordField entryPassword = new PasswordField();
+        entryVBox5.getChildren().add(entryPassword);
+        
+        Button go = new Button("go!");
+        Button newFile = new Button("new");
+        go.setPadding(new Insets(5,5,5,5));
+        entryHBox3.getChildren().addAll(newFile,go);
+        
+        entryBox.setAlignment(Pos.CENTER);
+        entryHBox.setPadding(new Insets(5,5,5,5));
+        entryHBox.setAlignment(Pos.CENTER);
+        entryHBox2.setPadding(new Insets(5,5,5,5));
+        entryHBox2.setAlignment(Pos.CENTER);
+        entryHBox3.setAlignment(Pos.BASELINE_CENTER);
+      
+        
+        
+        
+        Scene entryScene = new Scene(entryPane, 400, 500);
+        
         primaryStage.setTitle("Cipher Security: Passwords Saver");
-        primaryStage.setScene(scene);
+        primaryStage.setScene(entryScene);
         primaryStage.show();
+        
     }
 
     /**
