@@ -29,9 +29,14 @@ import javafx.geometry.Pos;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.Reflection;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -199,6 +204,8 @@ public class CipherSecurity extends Application {
         entryVBox2.prefWidth(40);
         VBox entryVBox5 = new VBox();
         entryVBox3.prefWidth(40);
+        VBox entryVBox6 = new VBox();
+        VBox entryVBox7 = new VBox();
         
         entryHBox.getChildren().addAll(entryVBox2, entryVBox3);
         entryHBox2.getChildren().addAll(entryVBox4, entryVBox5);
@@ -222,9 +229,12 @@ public class CipherSecurity extends Application {
         entryVBox5.getChildren().add(entryPassword);
         
         Button go = new Button("go!");
+        entryVBox7.getChildren().add(go);
+        entryVBox7.setPadding(new Insets(2,2,2,2));
         Button newFile = new Button("new");
-        go.setPadding(new Insets(5,5,5,5));
-        entryHBox3.getChildren().addAll(newFile,go);
+        entryVBox6.getChildren().add(newFile);
+        entryVBox6.setPadding(new Insets(2,2,2,2));
+        entryHBox3.getChildren().addAll(entryVBox6,entryVBox7);
         
         entryBox.setAlignment(Pos.CENTER);
         entryHBox.setPadding(new Insets(5,5,5,5));
@@ -232,13 +242,80 @@ public class CipherSecurity extends Application {
         entryHBox2.setPadding(new Insets(5,5,5,5));
         entryHBox2.setAlignment(Pos.CENTER);
         entryHBox3.setAlignment(Pos.BASELINE_CENTER);
-      
         
+        StackPane entryPane = new StackPane();
+        VBox entryBox = new VBox();
+        HBox entryHBox = new HBox();
+        HBox entryHBox2 = new HBox();
+        HBox entryHBox3 = new HBox();
+        VBox entryVBox2 = new VBox();
+        entryVBox2.prefWidth(40);
+        VBox entryVBox3 = new VBox();
+        entryVBox3.prefWidth(40);
+        VBox entryVBox4 = new VBox();
+        entryVBox2.prefWidth(40);
+        VBox entryVBox5 = new VBox();
+        entryVBox3.prefWidth(40);
+        VBox entryVBox6 = new VBox();
+        VBox entryVBox7 = new VBox();
         
+        entryHBox.getChildren().addAll(entryVBox2, entryVBox3);
+        entryHBox2.getChildren().addAll(entryVBox4, entryVBox5);
+        entryBox.getChildren().addAll(entryHBox, entryHBox2, entryHBox3);
+        entryPane.getChildren().add(entryBox);
+        
+        Label entryUNLabel = new Label("User Name: ");
+        entryUNLabel.setMinWidth(70);
+        entryVBox2.getChildren().add(entryUNLabel);
+        entryVBox2.setAlignment(Pos.CENTER_RIGHT);
+        
+        TextField entryUserName = new TextField();
+        entryVBox3.getChildren().add(entryUserName);
+        
+        Label entryPWLabel = new Label("Password: ");
+        entryPWLabel.setMinWidth(70);
+        entryVBox4.getChildren().add(entryPWLabel);
+        entryVBox4.setAlignment(Pos.CENTER_RIGHT);
+        
+        PasswordField entryPassword = new PasswordField();
+        entryVBox5.getChildren().add(entryPassword);
+        
+        Button go = new Button("go!");
+        entryVBox7.getChildren().add(go);
+        entryVBox7.setPadding(new Insets(2,2,2,2));
+        Button newFile = new Button("new");
+        entryVBox6.getChildren().add(newFile);
+        entryVBox6.setPadding(new Insets(2,2,2,2));
+        entryHBox3.getChildren().addAll(entryVBox6,entryVBox7);
+        
+        entryBox.setAlignment(Pos.CENTER);
+        entryHBox.setPadding(new Insets(5,5,5,5));
+        entryHBox.setAlignment(Pos.CENTER);
+        entryHBox2.setPadding(new Insets(5,5,5,5));
+        entryHBox2.setAlignment(Pos.CENTER);
+        entryHBox3.setAlignment(Pos.BASELINE_CENTER);
+     
         
         Scene entryScene = new Scene(entryPane, 400, 500);
         
-        primaryStage.setTitle("Cipher Security: Passwords Saver");
+        BackgroundImage myBI= new BackgroundImage(new javafx.scene.image.Image(getClass().getResource("Background.jpg").toExternalForm()),
+        BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+          BackgroundSize.DEFAULT);
+
+        entryPane.setBackground(new Background(myBI));
+
+        
+        go.setOnAction(new EventHandler<ActionEvent>() {
+            
+            @Override
+            public void handle(ActionEvent event) {
+                primaryStage.setScene(scene);
+                primaryStage.show();
+                System.out.println("go!");
+            }
+        });
+        
+        primaryStage.setTitle("Cipher Security: Password Saver");
         primaryStage.setScene(entryScene);
         primaryStage.show();
         
