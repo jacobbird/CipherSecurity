@@ -225,8 +225,8 @@ public class CipherSecurity extends Application {
         entryVBox4.getChildren().add(entryPWLabel);
         entryVBox4.setAlignment(Pos.CENTER_RIGHT);
         
-        PasswordField entryPassword = new PasswordField();
-        entryVBox5.getChildren().add(entryPassword);
+        PasswordField entry2Password = new PasswordField();
+        entryVBox5.getChildren().add(entry2Password);
         
         Button go = new Button("go!");
         entryVBox7.getChildren().add(go);
