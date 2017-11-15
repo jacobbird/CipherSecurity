@@ -218,6 +218,7 @@ public class CipherSecurity extends Application {
         entryVBox2.setAlignment(Pos.CENTER_RIGHT);
         
         TextField entryUserName = new TextField();
+        
         entryVBox3.getChildren().add(entryUserName);
         
         Label entryPWLabel = new Label("Password: ");
@@ -243,7 +244,7 @@ public class CipherSecurity extends Application {
         entryHBox2.setAlignment(Pos.CENTER);
         entryHBox3.setAlignment(Pos.BASELINE_CENTER);
         
-        StackPane entryPane = new StackPane();
+        /*StackPane entryPane = new StackPane();
         VBox entryBox = new VBox();
         HBox entryHBox = new HBox();
         HBox entryHBox2 = new HBox();
@@ -286,7 +287,7 @@ public class CipherSecurity extends Application {
         Button newFile = new Button("new");
         entryVBox6.getChildren().add(newFile);
         entryVBox6.setPadding(new Insets(2,2,2,2));
-        entryHBox3.getChildren().addAll(entryVBox6,entryVBox7);
+        entryHBox3.getChildren().addAll(entryVBox6,entryVBox7);*/
         
         entryBox.setAlignment(Pos.CENTER);
         entryHBox.setPadding(new Insets(5,5,5,5));
