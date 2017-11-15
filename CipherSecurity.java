@@ -228,6 +228,8 @@ public class CipherSecurity extends Application {
         
         
         
+        
+        
         PasswordField entryPassword = new PasswordField();
         entryVBox5.getChildren().add(entryPassword);
         
