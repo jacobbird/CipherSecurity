@@ -49,7 +49,7 @@ public class CipherSecurity extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        Label label = new Label();
+        /*Label label = new Label();
         label.setText("Cipher Security");
         
         
@@ -156,10 +156,14 @@ public class CipherSecurity extends Application {
         resultsPane.add(passwordText, 2, 1);
         
         FileContentConverter testContent = new FileContentConverter("testFile");
-        List<UserNamePassword> siteList= testContent.getSites();        
-        Iterator siteListIter = siteList.iterator();
+        List<UserNamePassword> siteList= testContent.getSites();  */      
+        GUISitePage siteDisplay = new GUISitePage();
+        
+        Iterator siteListIter = (Iterator)siteDisplay.GUICode().get(2);
         
         List<Text> siteTxts = new ArrayList<Text>();
+        
+        VBox siteVBox = (VBox)siteDisplay.GUICode().get(0);
         
         int i = 0;
         while(siteListIter.hasNext()){
@@ -173,8 +177,8 @@ public class CipherSecurity extends Application {
             
                 @Override
                 public void handle(MouseEvent event) {
-                    usrNameText.setText(usrNamePass.getUserName());
-                    passwordText.setText(usrNamePass.getPassword());
+                    //usrNameText.setText(usrNamePass.getUserName());
+                    //passwordText.setText(usrNamePass.getPassword());
                 }
             });
             
@@ -187,8 +191,9 @@ public class CipherSecurity extends Application {
         
         //Button[] btnArr = (Button[])siteBtns.toArray();
         
-        Scene scene = new Scene(borderRoot, 400, 500);
+        //Scene scene = new Scene(borderRoot, 400, 500);
         
+        siteDisplay.show(primaryStage);
         
         
         StackPane entryPane = new StackPane();
@@ -312,15 +317,13 @@ public class CipherSecurity extends Application {
             
             @Override
             public void handle(ActionEvent event) {
-                primaryStage.setScene(scene);
-                primaryStage.show();
+                //primaryStage.setScene(scene);
+                //primaryStage.show();
                 System.out.println("go!");
             }
         });
         
-        primaryStage.setTitle("Cipher Security: Password Saver");
-        primaryStage.setScene(entryScene);
-        primaryStage.show();
+        
         
     }
 
