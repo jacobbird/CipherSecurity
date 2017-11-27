@@ -49,120 +49,10 @@ public class CipherSecurity extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        /*Label label = new Label();
-        label.setText("Cipher Security");
-        
-        
-        Button openBtn = new Button();
-        openBtn.setText("Open");
-        openBtn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Open");
-            }
-        });
-        
-        Button settingsBtn = new Button();
-        settingsBtn.setText("Settings");
-        settingsBtn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Settings");
-            }
-        });
-        
-        Button editBtn = new Button();
-        editBtn.setText("Edit");
-        editBtn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                
-                System.out.println("Edit");
-            }
-        });
-        
-        Button newBtn = new Button();
-        newBtn.setText("New");
-        newBtn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("New");
-            }
-        });
-        
-//        StackPane root = new StackPane();
-//        root.getChildren().add(label);
-//        root.getChildren().add(btn);
-        
-        BorderPane borderRoot = new BorderPane();
-        
-        GridPane resultsPane = new GridPane();
-        VBox siteVBox = new VBox();
-        ScrollPane siteScrPane = new ScrollPane();
-        BorderPane settingsOpenPane = new BorderPane();
-        BorderPane editNew = new BorderPane();
-        HBox editNewHor = new HBox();
-        
-        borderRoot.setCenter(resultsPane);
-        borderRoot.setLeft(siteScrPane);
-        borderRoot.setTop(settingsOpenPane);
-        borderRoot.setBottom(editNew);
-        borderRoot.setPadding(new Insets(0, 10, 0, 10));
-        
-        String font = "Times New Roman";
-        
-        Font lblFont = new Font(font, 32.00);
-        label.setFont(lblFont);
-        
-        label.setTextFill(Color.WHITE);
-        settingsOpenPane.setLeft(label);
-        settingsOpenPane.setBackground(new Background(new BackgroundFill(
-                Color.CORNFLOWERBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
-        //settingsOpenPane.setRight(settingsBtn);
-        settingsOpenPane.setPadding(new Insets(10, 10, 10, 10));
-        
-        editNew.setRight(editNewHor);
-        editNewHor.getChildren().add(editBtn);
-        editNewHor.getChildren().add(newBtn);
-        editNewHor.setPadding(new Insets(10,10,10,10));
-        editNewHor.setSpacing(10.00);
-        
-        siteVBox.setPadding(new Insets(10, 10, 10, 10));
-        
-        siteScrPane.setContent(siteVBox);
-        
-        resultsPane.setHgap(10);
-        resultsPane.setVgap(10);
-        resultsPane.setPadding(new Insets(20, 20, 20, 20));
-
-        Text usrNameTitle = new Text("User Name:");
-        usrNameTitle.setFont(Font.font(font, FontWeight.BOLD, 20));
-        resultsPane.add(usrNameTitle, 1, 0); 
-
-        Text usrNameText = new Text("");
-        usrNameText.setFont(Font.font(font, FontWeight.BOLD, 20));
-        resultsPane.add(usrNameText, 2, 0);
-        
-        Text passwordTitle = new Text("Password:");
-        passwordTitle.setFont(Font.font(font, FontWeight.BOLD, 20));
-        resultsPane.add(passwordTitle, 1, 1); 
-
-        Text passwordText = new Text("");
-        passwordText.setFont(Font.font(font, FontWeight.BOLD, 20));
-        resultsPane.add(passwordText, 2, 1);
-        
-        FileContentConverter testContent = new FileContentConverter("testFile");
-        List<UserNamePassword> siteList= testContent.getSites();  */      
+          
         GUISitePage siteDisplay = new GUISitePage();
-        
         Iterator siteListIter = (Iterator)siteDisplay.GUICode().get(2);
-        
         List<Text> siteTxts = new ArrayList<Text>();
-        
         VBox siteVBox = (VBox)siteDisplay.GUICode().get(0);
         
         int i = 0;
@@ -189,14 +79,8 @@ public class CipherSecurity extends Application {
             i++;
         }
         
-        //Button[] btnArr = (Button[])siteBtns.toArray();
         
-        //Scene scene = new Scene(borderRoot, 400, 500);
-        
-        siteDisplay.show(primaryStage);
-        
-        
-        StackPane entryPane = new StackPane();
+        /*StackPane entryPane = new StackPane();
         VBox entryBox = new VBox();
         HBox entryHBox = new HBox();
         HBox entryHBox2 = new HBox();
@@ -249,7 +133,7 @@ public class CipherSecurity extends Application {
         entryHBox.setAlignment(Pos.CENTER);
         entryHBox2.setPadding(new Insets(5,5,5,5));
         entryHBox2.setAlignment(Pos.CENTER);
-        entryHBox3.setAlignment(Pos.BASELINE_CENTER);
+        entryHBox3.setAlignment(Pos.BASELINE_CENTER);*/
         
         /*StackPane entryPane = new StackPane();
         VBox entryBox = new VBox();
@@ -296,7 +180,7 @@ public class CipherSecurity extends Application {
         entryVBox6.setPadding(new Insets(2,2,2,2));
         entryHBox3.getChildren().addAll(entryVBox6,entryVBox7);*/
         
-        entryBox.setAlignment(Pos.CENTER);
+        /*entryBox.setAlignment(Pos.CENTER);
         entryHBox.setPadding(new Insets(5,5,5,5));
         entryHBox.setAlignment(Pos.CENTER);
         entryHBox2.setPadding(new Insets(5,5,5,5));
@@ -310,20 +194,21 @@ public class CipherSecurity extends Application {
         BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
           BackgroundSize.DEFAULT);
 
-        entryPane.setBackground(new Background(myBI));
-
+        entryPane.setBackground(new Background(myBI));*/
         
+        GUILogin login = new GUILogin();
+        
+        Button go = (Button)login.GUICode().get(0);
         go.setOnAction(new EventHandler<ActionEvent>() {
             
             @Override
             public void handle(ActionEvent event) {
-                //primaryStage.setScene(scene);
-                //primaryStage.show();
+                siteDisplay.show(primaryStage);
                 System.out.println("go!");
             }
         });
         
-        
+        login.show(primaryStage);
         
     }
 
