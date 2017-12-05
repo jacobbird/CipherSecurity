@@ -50,155 +50,49 @@ public class CipherSecurity extends Application {
     @Override
     public void start(Stage primaryStage) {
           
-        GUISitePage siteDisplay = new GUISitePage();
-        Iterator siteListIter = (Iterator)siteDisplay.GUICode().get(2);
-        List<Text> siteTxts = new ArrayList<Text>();
-        VBox siteVBox = (VBox)siteDisplay.GUICode().get(0);
-        
-        int i = 0;
-        while(siteListIter.hasNext()){
-            Text siteTxt = new Text();
-            
-            UserNamePassword usrNamePass = (UserNamePassword)siteListIter.next();
-            siteTxt.setText(usrNamePass.getSiteName());
-            
-            
-            siteTxt.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            
-                @Override
-                public void handle(MouseEvent event) {
-                    //usrNameText.setText(usrNamePass.getUserName());
-                    //passwordText.setText(usrNamePass.getPassword());
-                }
-            });
-            
-            siteTxts.add(siteTxt);
-            
-            siteVBox.getChildren().add(siteTxts.get(i));
-            
-            i++;
-        }
-        
-        
-        /*StackPane entryPane = new StackPane();
-        VBox entryBox = new VBox();
-        HBox entryHBox = new HBox();
-        HBox entryHBox2 = new HBox();
-        HBox entryHBox3 = new HBox();
-        VBox entryVBox2 = new VBox();
-        entryVBox2.prefWidth(40);
-        VBox entryVBox3 = new VBox();
-        entryVBox3.prefWidth(40);
-        VBox entryVBox4 = new VBox();
-        entryVBox2.prefWidth(40);
-        VBox entryVBox5 = new VBox();
-        entryVBox3.prefWidth(40);
-        VBox entryVBox6 = new VBox();
-        VBox entryVBox7 = new VBox();
-        
-        entryHBox.getChildren().addAll(entryVBox2, entryVBox3);
-        entryHBox2.getChildren().addAll(entryVBox4, entryVBox5);
-        entryBox.getChildren().addAll(entryHBox, entryHBox2, entryHBox3);
-        entryPane.getChildren().add(entryBox);
-        
-        Label entryUNLabel = new Label("User Name: ");
-        entryUNLabel.setMinWidth(70);
-        entryVBox2.getChildren().add(entryUNLabel);
-        entryVBox2.setAlignment(Pos.CENTER_RIGHT);
-        
-        TextField entryUserName = new TextField();
-        
-        entryVBox3.getChildren().add(entryUserName);
-        
-        Label entryPWLabel = new Label("Password: ");
-        entryPWLabel.setMinWidth(70);
-        entryVBox4.getChildren().add(entryPWLabel);
-        entryVBox4.setAlignment(Pos.CENTER_RIGHT);
-        
-        
-        
-        PasswordField entryPassword = new PasswordField();
-        entryVBox5.getChildren().add(entryPassword);
-        
-        Button go = new Button("go!");
-        entryVBox7.getChildren().add(go);
-        entryVBox7.setPadding(new Insets(2,2,2,2));
-        Button newFile = new Button("new");
-        entryVBox6.getChildren().add(newFile);
-        entryVBox6.setPadding(new Insets(2,2,2,2));
-        entryHBox3.getChildren().addAll(entryVBox6,entryVBox7);
-        
-        entryBox.setAlignment(Pos.CENTER);
-        entryHBox.setPadding(new Insets(5,5,5,5));
-        entryHBox.setAlignment(Pos.CENTER);
-        entryHBox2.setPadding(new Insets(5,5,5,5));
-        entryHBox2.setAlignment(Pos.CENTER);
-        entryHBox3.setAlignment(Pos.BASELINE_CENTER);*/
-        
-        /*StackPane entryPane = new StackPane();
-        VBox entryBox = new VBox();
-        HBox entryHBox = new HBox();
-        HBox entryHBox2 = new HBox();
-        HBox entryHBox3 = new HBox();
-        VBox entryVBox2 = new VBox();
-        entryVBox2.prefWidth(40);
-        VBox entryVBox3 = new VBox();
-        entryVBox3.prefWidth(40);
-        VBox entryVBox4 = new VBox();
-        entryVBox2.prefWidth(40);
-        VBox entryVBox5 = new VBox();
-        entryVBox3.prefWidth(40);
-        VBox entryVBox6 = new VBox();
-        VBox entryVBox7 = new VBox();
-        
-        entryHBox.getChildren().addAll(entryVBox2, entryVBox3);
-        entryHBox2.getChildren().addAll(entryVBox4, entryVBox5);
-        entryBox.getChildren().addAll(entryHBox, entryHBox2, entryHBox3);
-        entryPane.getChildren().add(entryBox);
-        
-        Label entryUNLabel = new Label("User Name: ");
-        entryUNLabel.setMinWidth(70);
-        entryVBox2.getChildren().add(entryUNLabel);
-        entryVBox2.setAlignment(Pos.CENTER_RIGHT);
-        
-        TextField entryUserName = new TextField();
-        entryVBox3.getChildren().add(entryUserName);
-        
-        Label entryPWLabel = new Label("Password: ");
-        entryPWLabel.setMinWidth(70);
-        entryVBox4.getChildren().add(entryPWLabel);
-        entryVBox4.setAlignment(Pos.CENTER_RIGHT);
-        
-        PasswordField entryPassword = new PasswordField();
-        entryVBox5.getChildren().add(entryPassword);
-        
-        Button go = new Button("go!");
-        entryVBox7.getChildren().add(go);
-        entryVBox7.setPadding(new Insets(2,2,2,2));
-        Button newFile = new Button("new");
-        entryVBox6.getChildren().add(newFile);
-        entryVBox6.setPadding(new Insets(2,2,2,2));
-        entryHBox3.getChildren().addAll(entryVBox6,entryVBox7);*/
-        
-        /*entryBox.setAlignment(Pos.CENTER);
-        entryHBox.setPadding(new Insets(5,5,5,5));
-        entryHBox.setAlignment(Pos.CENTER);
-        entryHBox2.setPadding(new Insets(5,5,5,5));
-        entryHBox2.setAlignment(Pos.CENTER);
-        entryHBox3.setAlignment(Pos.BASELINE_CENTER);
-     
-        
-        Scene entryScene = new Scene(entryPane, 400, 500);
-        
-        BackgroundImage myBI= new BackgroundImage(new javafx.scene.image.Image(getClass().getResource("Background.jpg").toExternalForm()),
-        BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
-          BackgroundSize.DEFAULT);
-
-        entryPane.setBackground(new Background(myBI));*/
+        Object[] nullArray = new Object[0];
         
         GUILogin login = new GUILogin();
+        GUINewUser newUser = new GUINewUser();
+        GUISitePage siteDisplay = new GUISitePage();
+        GUIUnamePassPage GUIUNPP = new GUIUnamePassPage();
+        GUIEditSite editSite = new GUIEditSite();
         
-        Button go = (Button)login.GUICode().get(0);
+        Object[] uNPPageArgs = new Object[50];
+        UserNamePassword usrNamePass = new UserNamePassword();
+        uNPPageArgs[0] = usrNamePass;
+        uNPPageArgs[1] = primaryStage;
+        uNPPageArgs[2] = GUIUNPP;
+        uNPPageArgs[3] = siteDisplay;
+        uNPPageArgs[4] = login;
+        uNPPageArgs[5] = editSite;
+        uNPPageArgs[6] = newUser;
+        
+        /*Button go = (Button)login.GUICode(uNPPageArgs).get(0);
+        Button go2 = (Button)newUser.GUICode(uNPPageArgs).get(0);
+        Button newUserBtn = (Button)login.GUICode(uNPPageArgs).get(1);
+        Button Backtologin = (Button)siteDisplay.GUICode(uNPPageArgs).get(3);
+        Button editSiteBtn = (Button)GUIUNPP.GUICode(uNPPageArgs).get(1);
+        Button goEdit = (Button)editSite.GUICode(uNPPageArgs).get(0);
+        
+        goEdit.setOnAction(new EventHandler<ActionEvent>() {
+            
+            @Override
+            public void handle(ActionEvent event) {
+                siteDisplay.show(primaryStage);
+                System.out.println("go!");
+            }
+        });
+        
+        editSiteBtn.setOnAction(new EventHandler<ActionEvent>() {
+            
+            @Override
+            public void handle(ActionEvent event) {
+                editSite.show(primaryStage);
+                System.out.println("go!");
+            }
+        });
+        
         go.setOnAction(new EventHandler<ActionEvent>() {
             
             @Override
@@ -208,8 +102,33 @@ public class CipherSecurity extends Application {
             }
         });
         
-        login.show(primaryStage);
+        go2.setOnAction(new EventHandler<ActionEvent>() {
+            
+            @Override
+            public void handle(ActionEvent event) {
+                siteDisplay.show(primaryStage);
+                System.out.println("go!");
+            }
+        });
         
+        newUserBtn.setOnAction(new EventHandler<ActionEvent>() {
+            
+            @Override
+            public void handle(ActionEvent event) {
+                newUser.show(primaryStage);
+                System.out.println("go!");
+            }
+        });
+        
+        Backtologin.setOnAction(new EventHandler<ActionEvent>(){
+           
+            @Override
+            public void handle(ActionEvent event){
+                login.show(primaryStage);
+            }
+        }); */ 
+        login.GUICode(uNPPageArgs);
+        login.show(primaryStage);
     }
 
     /**
