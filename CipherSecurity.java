@@ -57,6 +57,7 @@ public class CipherSecurity extends Application {
         GUISitePage siteDisplay = new GUISitePage();
         GUIUnamePassPage GUIUNPP = new GUIUnamePassPage();
         GUIEditSite editSite = new GUIEditSite();
+        GUINewSite newSite = new GUINewSite();
         
         Object[] uNPPageArgs = new Object[50];
         UserNamePassword usrNamePass = new UserNamePassword();
@@ -67,6 +68,7 @@ public class CipherSecurity extends Application {
         uNPPageArgs[4] = login;
         uNPPageArgs[5] = editSite;
         uNPPageArgs[6] = newUser;
+        uNPPageArgs[7] = newSite;
         
         /*Button go = (Button)login.GUICode(uNPPageArgs).get(0);
         Button go2 = (Button)newUser.GUICode(uNPPageArgs).get(0);
