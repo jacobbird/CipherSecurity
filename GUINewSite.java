@@ -114,7 +114,7 @@ public class GUINewSite implements IGUIClass{
         PasswordField entryPassword2 = new PasswordField();
         entryVBox9.getChildren().add(entryPassword2);
         
-        Button go = new Button("go!");
+        Button go = new Button("go!");  // Create new Site
         
         go.setOnMouseClicked(new EventHandler<MouseEvent>() {
             

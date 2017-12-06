@@ -37,7 +37,7 @@ public class FileContentConverter {
        /*
         Code goes here to retireve the site information from the file.
         */ 
-       
+       // Encryption happens
        return this.sites;
     }
     

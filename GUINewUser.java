@@ -100,7 +100,7 @@ public class GUINewUser implements IGUIClass{
         PasswordField entryPassword2 = new PasswordField();
         entryVBox7.getChildren().add(entryPassword2);
         
-        Button go = new Button("go!");
+        Button go = new Button("go!");  // New User "Profile"
         
         go.setOnMouseClicked(new EventHandler<MouseEvent>() {
             

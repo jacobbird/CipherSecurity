@@ -99,7 +99,7 @@ public class GUILogin implements IGUIClass{
         entryVBox7.getChildren().add(go);
         pressables.add(go);
         entryVBox7.setPadding(new Insets(2,2,2,2));
-        Button newFile = new Button("new");
+        Button newFile = new Button("new"); // New User
         
         newFile.setOnMouseClicked(new EventHandler<MouseEvent>() {
             
