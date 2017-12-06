@@ -40,4 +40,10 @@ public class FileContentConverter {
        
        return this.sites;
     }
+    
+    public void addSite(UserNamePassword unp){this.sites.add(unp);
+    
+    
+    }
+    
 }
