@@ -1,6 +1,6 @@
-package Methods;
+package CipherSecurity.Methods;
 import java.util.ArrayList;
-import CipherSecurity.GUILogin;
+import CipherSecurity.CipherSecurity.GUILogin;
 
 public class RSA {
 	

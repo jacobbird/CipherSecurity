@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CipherSecurity;
+package CipherSecurity.CipherSecurity;
 
 import java.util.ArrayList;
 import javafx.event.EventHandler;
@@ -186,9 +186,6 @@ public class GUINewUser implements IGUIClass{
         //entryPane.setStyle("-fx-background-color: lightblue");
         
         entryPane.setBackground(new Background(myBI));
-        
-        
-        
         return pressables;
         
     }

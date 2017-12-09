@@ -1,4 +1,4 @@
-package Methods;
+package CipherSecurity.Methods;
 
 public class Generator {
 	

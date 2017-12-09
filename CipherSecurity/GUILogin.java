@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CipherSecurity;
+package CipherSecurity.CipherSecurity;
 
-import Methods.RSA;
+import CipherSecurity.Methods.RSA;
 import java.util.ArrayList;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -150,6 +150,7 @@ public class GUILogin implements IGUIClass{
                     GUINewUser newUser = (GUINewUser)args[6];
                     newUser.GUICode(args);
                     newUser.show((Stage)args[1]);
+                    System.out.println(args);
                     }
             });
         

@@ -3,11 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CipherSecurity;
+package CipherSecurity.CipherSecurity;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -174,7 +177,12 @@ public class GUISitePage implements IGUIClass {
         resultsPane.add(passwordText, 2, 1);
         
         // Site Load and Display
-        FileContentConverter testContent = new FileContentConverter("testFile");
+        FileContentConverter testContent = null;
+        try {
+            testContent = new FileContentConverter("testFile");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(GUISitePage.class.getName()).log(Level.SEVERE, null, ex);
+        }
        
         
         List<UserNamePassword> siteList = testContent.getSites();  

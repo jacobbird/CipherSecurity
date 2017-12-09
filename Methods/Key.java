@@ -1,4 +1,4 @@
-package Methods;
+package CipherSecurity.Methods;
 import java.util.Random;
 
 

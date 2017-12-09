@@ -5,7 +5,7 @@
  */
 
 // Shows Username and Password for Site (Of Profile Username)
-package CipherSecurity;
+package CipherSecurity.CipherSecurity;
 
 import java.util.ArrayList;
 import java.util.Iterator;
