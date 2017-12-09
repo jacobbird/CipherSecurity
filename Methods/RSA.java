@@ -11,8 +11,8 @@ public class RSA {
         private String name ="";
 	
 	public String convert(String data, char op) {
-            GUILogin login = new GUILogin();
-            name = login.getUserNameString();
+            //GUILogin login = new GUILogin();
+            name = GUILogin.getUserNameString();
 		String data2 = User(data, op, name);
 		return data2;
 	}
