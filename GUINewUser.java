@@ -66,8 +66,10 @@ public class GUINewUser implements IGUIClass{
         VBox entryVBox7 = new VBox();
         entryVBox7.prefWidth(40);
         
+        String font = "Times New Roman";
+        
         Text title = new Text("New User");
-        title.setFont(new Font(24));
+        title.setFont(new Font(font, 24));
        
         entryHBoxTitle.getChildren().add(title);
         entryHBox.getChildren().addAll(entryVBox2, entryVBox3);
@@ -92,7 +94,8 @@ public class GUINewUser implements IGUIClass{
         PasswordField entryPassword = new PasswordField();
         entryVBox5.getChildren().add(entryPassword);
         
-        Label entryPWLabel2 = new Label("Password: ");
+        //Label entryPWLabel2 = new Label("Password: ");
+        Label entryPWLabel2 = new Label("Other Info: ");
         entryPWLabel.setMinWidth(70);
         entryVBox6.getChildren().add(entryPWLabel2);
         entryVBox6.setAlignment(Pos.CENTER_RIGHT);
@@ -100,7 +103,8 @@ public class GUINewUser implements IGUIClass{
         PasswordField entryPassword2 = new PasswordField();
         entryVBox7.getChildren().add(entryPassword2);
         
-        Button go = new Button("go!");  // New User "Profile"
+        //Button go = new Button("go!");  // New User "Profile"
+        Button go = new Button("Create");  // New User "Profile"
         
         go.setOnMouseClicked(new EventHandler<MouseEvent>() {
             
@@ -177,6 +181,10 @@ public class GUINewUser implements IGUIClass{
         BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
           BackgroundSize.DEFAULT);
 
+        
+        
+        //entryPane.setStyle("-fx-background-color: lightblue");
+        
         entryPane.setBackground(new Background(myBI));
         
         
@@ -187,7 +195,8 @@ public class GUINewUser implements IGUIClass{
 
     @Override
     public void show(Stage s) {
-        s.setTitle("Cipher Security: Password Saver");
+        //s.setTitle("Cipher Security: Password Saver");
+        s.setTitle("PassSafe: Password Saver");
         s.setScene(scene);
         s.show();
     }

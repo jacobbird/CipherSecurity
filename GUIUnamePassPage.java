@@ -23,10 +23,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -39,7 +44,6 @@ import javafx.stage.Stage;
  * @author Jacob
  */
 public class GUIUnamePassPage implements IGUIClass {
-
     BorderPane borderRoot;
     Scene scene;
     
@@ -53,7 +57,7 @@ public class GUIUnamePassPage implements IGUIClass {
         ArrayList<Object> pressables = new ArrayList<Object>();
         
         Label label = new Label();
-        label.setText("Cipher Security");
+        //label.setText("Cipher Security");
         
         Button editBtn = new Button();
         editBtn.setText("Edit");
@@ -75,6 +79,7 @@ public class GUIUnamePassPage implements IGUIClass {
             
                 @Override
                 public void handle(MouseEvent event) {
+                    // Remove from FileSystem
                     GUISitePage sitePage = (GUISitePage)args[3];
                     sitePage.GUICode(args);
                     sitePage.show((Stage)args[1]);
@@ -90,7 +95,7 @@ public class GUIUnamePassPage implements IGUIClass {
             public void handle(ActionEvent event) {
                 GUISitePage siteDisplay = (GUISitePage)args[3];
                 siteDisplay.show((Stage)args[1]);
-                System.out.println("back");
+                System.out.println("Back");
             }
         });
         
@@ -124,7 +129,7 @@ public class GUIUnamePassPage implements IGUIClass {
         entryHBox2.getChildren().addAll(entryVBox4, entryVBox5);
         entryBox.getChildren().addAll(entryHBox, entryHBox2, entryHBox3);
         
-        
+ 
         Label entryUNLabel = new Label("User Name: ");
         entryUNLabel.setMinWidth(70);
         entryVBox2.getChildren().add(entryUNLabel);
@@ -145,14 +150,20 @@ public class GUIUnamePassPage implements IGUIClass {
         //borderRoot.setCenter(resultsPane);
         borderRoot.setCenter(resultsPane);
         //borderRoot.setLeft(siteScrPane);
-        //borderRoot.setTop(settingsOpenPane);
+        borderRoot.setTop(settingsOpenPane);
         borderRoot.setBottom(editNew);
         borderRoot.setPadding(new Insets(0, 10, 0, 10));
         
         String font = "Times New Roman";
         
         Font lblFont = new Font(font, 32.00);
+        
+        UserNamePassword usrNamePass = (UserNamePassword)args[0];
+        
+        // NEW
+        label.setText(usrNamePass.getSiteName());      // Read in Site Name
         label.setFont(lblFont);
+        // END NEW
         
         label.setTextFill(Color.WHITE);
         settingsOpenPane.setLeft(label);
@@ -194,7 +205,7 @@ public class GUIUnamePassPage implements IGUIClass {
         passwordText.setFont(Font.font(font, FontWeight.BOLD, 20));
         resultsPane.add(passwordText, 2, 1);
         
-        UserNamePassword usrNamePass = (UserNamePassword)args[0];
+        //UserNamePassword usrNamePass = (UserNamePassword)args[0];
         
         usrNameText.setText(usrNamePass.getUserName());
         passwordText.setText(usrNamePass.getPassword());
@@ -203,12 +214,32 @@ public class GUIUnamePassPage implements IGUIClass {
         pressables.add(backBtn);
         pressables.add(editBtn);
         
+        
+        
+        BackgroundImage myBI= new BackgroundImage(new javafx.scene.image.Image(getClass().getResource("Background.jpg").toExternalForm()),
+        BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+        BackgroundSize.DEFAULT);
+        
+       
+        borderRoot.setStyle("-fx-background-color: white");
+        
+        // Other Colors
+        // #f0f8ff
+        // lightblue
+        
+        
+        
+        // BG to Image
+        //borderRoot.setBackground(new Background(myBI));
+        
+        
         return pressables;
     }
 
     @Override
     public void show(Stage s) {
-        s.setTitle("Cipher Security: Password Saver");
+        //s.setTitle("Cipher Security: Password Saver");
+        s.setTitle("PassSafe: Password Saver");
         s.setScene(scene);
         s.show();
     }

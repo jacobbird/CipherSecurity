@@ -18,10 +18,15 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -34,7 +39,6 @@ import javafx.stage.Stage;
  * @author Jacob
  */
 public class GUISitePage implements IGUIClass {
-
     BorderPane borderRoot;
     Scene scene;
     
@@ -48,7 +52,9 @@ public class GUISitePage implements IGUIClass {
         ArrayList<Object> pressables = new ArrayList<Object>();
         
         Label label = new Label();
-        label.setText("Cipher Security");
+        //label.setText("Cipher Security");
+        label.setText("Stored Sites");
+        String font = "Times New Roman";
         
         
         
@@ -99,7 +105,9 @@ public class GUISitePage implements IGUIClass {
         borderRoot.setBottom(editNew);
         borderRoot.setPadding(new Insets(0, 10, 0, 10));
         
-        String font = "Times New Roman";
+        
+        // Top Blue Section
+        
         
         Font lblFont = new Font(font, 32.00);
         label.setFont(lblFont);
@@ -111,6 +119,8 @@ public class GUISitePage implements IGUIClass {
         //settingsOpenPane.setRight(settingsBtn);
         settingsOpenPane.setPadding(new Insets(10, 10, 10, 10));
         
+        
+        // END TOP PANE
         editNew.setRight(editNewHor);
         //editNewHor.getChildren().add(editBtn);
         
@@ -154,10 +164,11 @@ public class GUISitePage implements IGUIClass {
         passwordTitle.setFont(Font.font(font, FontWeight.BOLD, 20));
         resultsPane.add(passwordTitle, 1, 1); 
 
-        Text passwordText = new Text("");
+        Text passwordText = new Text("");   // Additional Information
         passwordText.setFont(Font.font(font, FontWeight.BOLD, 20));
         resultsPane.add(passwordText, 2, 1);
         
+        // Site Load and Display
         FileContentConverter testContent = new FileContentConverter("testFile");
        
         
@@ -176,6 +187,10 @@ public class GUISitePage implements IGUIClass {
             Text siteTxt = new Text();
             
             UserNamePassword usrNamePass = (UserNamePassword)siteListIter.next();
+            // New
+            siteTxt.setFont(new Font(font, 24.00));
+            //siteTxt.setFill(Color.STEELBLUE);       // Font Color
+            // End New
             siteTxt.setText(usrNamePass.getSiteName());
             
             
@@ -185,6 +200,7 @@ public class GUISitePage implements IGUIClass {
                 public void handle(MouseEvent event) {
                     
                     args[0]=usrNamePass;
+                    //System.out.println(usrNamePass);
                     
                     GUIUnamePassPage GUPPage = (GUIUnamePassPage)args[2];
                     
@@ -200,6 +216,27 @@ public class GUISitePage implements IGUIClass {
             i++;
         }
         
+        
+        BackgroundImage myBI= new BackgroundImage(new javafx.scene.image.Image(getClass().getResource("Background.jpg").toExternalForm()),
+        BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+        BackgroundSize.DEFAULT);
+
+        
+        borderRoot.setStyle("-fx-background-color: white");
+        
+         // Other Colors
+        // #f0f8ff          Super Light Blue
+        // lightblue
+        // #fffff0          Ivory
+        // #ffefd5          Beige-ish
+        // #fff5ee          Seashell (Light, light, brown)
+        // #fffaf0          More brown white
+        // #fffaf0          Floral White (Good)
+  
+        
+        // Set BG to Image
+        //borderRoot.setBackground(new Background(myBI));
+        
         //Button[] btnArr = (Button[])siteBtns.toArray();
         
         return pressables;
@@ -207,7 +244,8 @@ public class GUISitePage implements IGUIClass {
 
     @Override
     public final void show(Stage s) {
-        s.setTitle("Cipher Security: Password Saver");
+        //s.setTitle("Cipher Security: Password Saver");
+        s.setTitle("PassSafe: Password Saver");
         s.setScene(scene);
         s.show();
         

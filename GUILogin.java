@@ -34,11 +34,30 @@ public class GUILogin implements IGUIClass{
     StackPane entryPane;
     Scene scene;
     
+    // To access Outside of Login Class
+    String entryUserNameString;
+    String entryPasswordString;
+    
     public GUILogin(){
         entryPane = new StackPane();
         scene = new Scene(entryPane, 400, 500);
     
     }
+    
+    // Gets for RSA Stuff
+    public String getUserNameString()
+    {
+        // Won't do what you think
+        // Will be null until User presses Login
+        // Will register String change once backed out
+        return this.entryUserNameString;
+    }
+    public String getPasswordString()
+    {
+        return this.entryPasswordString;
+    }
+    // End Gets for RSA Stuff
+    
     @Override
     public ArrayList<Object> GUICode(Object[] args) {
         
@@ -71,7 +90,7 @@ public class GUILogin implements IGUIClass{
         entryVBox2.setAlignment(Pos.CENTER_RIGHT);
         
         TextField entryUserName = new TextField();
-        
+       
         entryVBox3.getChildren().add(entryUserName);
         
         Label entryPWLabel = new Label("Password: ");
@@ -79,17 +98,24 @@ public class GUILogin implements IGUIClass{
         entryVBox4.getChildren().add(entryPWLabel);
         entryVBox4.setAlignment(Pos.CENTER_RIGHT);
         
-        
-        
+
         PasswordField entryPassword = new PasswordField();
         entryVBox5.getChildren().add(entryPassword);
         
-        Button go = new Button("go!");
+        //Button go = new Button("go!");  // Login
+        Button go = new Button("Login");  // Login
         
         go.setOnMouseClicked(new EventHandler<MouseEvent>() {
             
                 @Override
                 public void handle(MouseEvent event) {
+                    // Set the Username and Password
+                    entryUserNameString = entryUserName.getText();  // Set Username
+                    entryPasswordString = entryPassword.getText();
+                    System.out.println(getUserNameString());
+                    System.out.println(getPasswordString());
+                    //System.out.println(entryUserName.getText());  // Returns Username Entry
+                    //System.out.println(entryPassword.getText());  // Returns Password Entry
                     GUISitePage sitePage = (GUISitePage)args[3];
                     sitePage.GUICode(args);
                     sitePage.show((Stage)args[1]);
@@ -99,7 +125,9 @@ public class GUILogin implements IGUIClass{
         entryVBox7.getChildren().add(go);
         pressables.add(go);
         entryVBox7.setPadding(new Insets(2,2,2,2));
-        Button newFile = new Button("new"); // New User
+        
+        //Button newFile = new Button("new"); // New User
+        Button newFile = new Button("New User"); // New User
         
         newFile.setOnMouseClicked(new EventHandler<MouseEvent>() {
             
@@ -182,15 +210,15 @@ public class GUILogin implements IGUIClass{
 
         entryPane.setBackground(new Background(myBI));
         
-        
-        
         return pressables;
         
     }
+    
 
     @Override
     public void show(Stage s) {
-        s.setTitle("Cipher Security: Password Saver");
+        //s.setTitle("Cipher Security: Password Saver");
+        s.setTitle("PassSafe: Password Saver");
         s.setScene(scene);
         s.show();
     }
