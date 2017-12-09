@@ -51,6 +51,10 @@ public class GUISitePage implements IGUIClass {
     public final ArrayList<Object> GUICode(Object[] args) {
         ArrayList<Object> pressables = new ArrayList<Object>();
         
+        // Find out the Username System
+        System.out.println("Incoming Profile Username(from Login/Textfield): " + args[0]);
+        
+        
         Label label = new Label();
         //label.setText("Cipher Security");
         label.setText("Stored Sites");
@@ -75,6 +79,7 @@ public class GUISitePage implements IGUIClass {
             
             @Override
             public void handle(ActionEvent event) {
+                System.out.println("Outgoing Profile Username (to New Site): " + args[0]);
                 
                 GUINewSite GUINSPage = (GUINewSite)args[7];
                     
@@ -186,6 +191,7 @@ public class GUISitePage implements IGUIClass {
         while(siteListIter.hasNext()){
             Text siteTxt = new Text();
             
+            // usrNamePass is iterator through Converted File
             UserNamePassword usrNamePass = (UserNamePassword)siteListIter.next();
             // New
             siteTxt.setFont(new Font(font, 24.00));
@@ -198,12 +204,12 @@ public class GUISitePage implements IGUIClass {
             
                 @Override
                 public void handle(MouseEvent event) {
+                    System.out.println("Outgoing Profile Username (to SiteData pre-FileIterator): " + args[0]);
                     
-                    args[0]=usrNamePass;
-                    //System.out.println(usrNamePass);
+                    args[0]=usrNamePass;    // Setting args[0] to Converted File Iterator
+                    System.out.println("Outgoing Profile Username (to SiteData post-FileIterator): " + usrNamePass);
                     
                     GUIUnamePassPage GUPPage = (GUIUnamePassPage)args[2];
-                    
                     GUPPage.GUICode(args);
                     GUPPage.show((Stage)args[1]);
                     }

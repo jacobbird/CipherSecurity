@@ -112,8 +112,16 @@ public class GUILogin implements IGUIClass{
                     // Set the Username and Password
                     entryUserNameString = entryUserName.getText();  // Set Username
                     entryPasswordString = entryPassword.getText();
-                    System.out.println(getUserNameString());
-                    System.out.println(getPasswordString());
+                    System.out.println("Incoming Profile Username(Textfield): " + getUserNameString());
+                    //System.out.println(getPasswordString());
+                    
+                    args[0] = getUserNameString();
+                    
+                    System.out.println("Outgoing Profile Username(to SitePage): " + args[0]);
+                    //System.out.println(args[1]);
+                    //System.out.println(args[2]);
+                    //System.out.println(args[3]);
+                    
                     //System.out.println(entryUserName.getText());  // Returns Username Entry
                     //System.out.println(entryPassword.getText());  // Returns Password Entry
                     GUISitePage sitePage = (GUISitePage)args[3];

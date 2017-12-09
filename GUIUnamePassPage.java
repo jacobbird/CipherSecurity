@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-// Shows Username and Password for Site
+// Shows Username and Password for Site (Of Profile Username)
 package CipherSecurity;
 
 import java.util.ArrayList;
@@ -56,6 +56,10 @@ public class GUIUnamePassPage implements IGUIClass {
     public ArrayList<Object> GUICode(Object[] args) {
         ArrayList<Object> pressables = new ArrayList<Object>();
         
+        System.out.println("Incoming Profile Username (from SitePage): " + args[0]);
+        
+        
+        
         Label label = new Label();
         //label.setText("Cipher Security");
         
@@ -66,6 +70,7 @@ public class GUIUnamePassPage implements IGUIClass {
             
                 @Override
                 public void handle(MouseEvent event) {
+                    System.out.println("Outgoing Profile Username (to EditSite): " + args[0]);
                     GUIEditSite editPage = (GUIEditSite)args[5];
                     editPage.GUICode(args);
                     editPage.show((Stage)args[1]);
