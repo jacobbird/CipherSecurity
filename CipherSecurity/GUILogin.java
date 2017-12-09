@@ -36,7 +36,7 @@ public class GUILogin implements IGUIClass{
     Scene scene;
     
     // To access Outside of Login Class
-    String entryUserNameString;
+    static String entryUserNameString;
     String entryPasswordString;
     
     public GUILogin(){
@@ -46,12 +46,12 @@ public class GUILogin implements IGUIClass{
     }
     
     // Gets for RSA Stuff
-    public String getUserNameString()
+    public static String getUserNameString()
     {
         // Won't do what you think
         // Will be null until User presses Login
         // Will register String change once backed out
-        return this.entryUserNameString;
+        return GUILogin.entryUserNameString;
     }
     public String getPasswordString()
     {
@@ -110,6 +110,7 @@ public class GUILogin implements IGUIClass{
             
                 @Override
                 public void handle(MouseEvent event) {
+                    
                     // Set the Username and Password
                     entryUserNameString = entryUserName.getText();  // Set Username
                     entryPasswordString = entryPassword.getText();
@@ -123,8 +124,6 @@ public class GUILogin implements IGUIClass{
                     //System.out.println(args[2]);
                     //System.out.println(args[3]);
                     
-                    RSA user = new RSA();
-                    user.convert("Hello", 'e');
                     
                     //System.out.println(entryUserName.getText());  // Returns Username Entry
                     //System.out.println(entryPassword.getText());  // Returns Password Entry
