@@ -39,7 +39,7 @@ public class RSA {
 	
 	boolean ifExists(String name) {
 		for (Key person : obj) {
-	        if(person.getName() ==  name) {
+	        if(person.getName().equals(name)) {
 	        	user = person;
 	        	return true;
 	     }
