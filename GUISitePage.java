@@ -61,7 +61,7 @@ public class GUISitePage implements IGUIClass {
         String font = "Times New Roman";
         
         
-        
+        /*
         Button editBtn = new Button();
         editBtn.setText("Edit");
         editBtn.setOnAction(new EventHandler<ActionEvent>() {
@@ -72,6 +72,7 @@ public class GUISitePage implements IGUIClass {
                 System.out.println("Edit");
             }
         });
+*/
         
         Button newBtn = new Button();
         newBtn.setText("New");
