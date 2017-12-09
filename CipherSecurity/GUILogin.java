@@ -38,6 +38,7 @@ public class GUILogin implements IGUIClass{
     // To access Outside of Login Class
     static String entryUserNameString;
     String entryPasswordString;
+    RSA user = new RSA();
     
     public GUILogin(){
         entryPane = new StackPane();
@@ -123,6 +124,8 @@ public class GUILogin implements IGUIClass{
                     //System.out.println(args[1]);
                     //System.out.println(args[2]);
                     //System.out.println(args[3]);
+                    
+                    user.convert("Hello", 'e');
                     
                     
                     //System.out.println(entryUserName.getText());  // Returns Username Entry
