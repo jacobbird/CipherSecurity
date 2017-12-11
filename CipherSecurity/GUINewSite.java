@@ -129,7 +129,6 @@ public class GUINewSite implements IGUIClass{
                         unp.setSiteName(entrySiteNameT.getText());
                         unp.setUserName(entryUserName.getText());
                         unp.setPassword(entryPassword.getText());
-                        
                     }
                     
                     GUISitePage sitePage = (GUISitePage)args[3];
@@ -140,7 +139,6 @@ public class GUINewSite implements IGUIClass{
         
         entryHBox5.getChildren().add(go);
         pressables.add(go);
-       
         
         
         entryBox.setAlignment(Pos.CENTER);

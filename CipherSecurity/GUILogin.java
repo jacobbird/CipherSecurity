@@ -125,7 +125,7 @@ public class GUILogin implements IGUIClass{
                     //System.out.println(args[2]);
                     //System.out.println(args[3]);
                     
-                    user.convert("Hello", 'e');
+                    
                     
                     
                     //System.out.println(entryUserName.getText());  // Returns Username Entry

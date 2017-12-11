@@ -1,6 +1,1 @@
-Batman,Kills,Superman
-Amazon,dogHOT,cookiedog101
-Youtube,Polyphia,Euphoria
-Reddit,Grumpy,Shark1
-t,r,e
-test,test,test
+1078 2619 946 1680 768,107 1692 2650 2379 123,724 946 1716

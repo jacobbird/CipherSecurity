@@ -5,11 +5,13 @@
  */
 package CipherSecurity.CipherSecurity;
 
+import CipherSecurity.Methods.RSA;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 
 /**
  *
@@ -21,6 +23,7 @@ public class FileContentConverter {
 
     public FileContentConverter(String fileName) throws FileNotFoundException {
         //Testing code
+        RSA dec = new RSA();
         String path = "src/CipherSecurity/LockedUpSaves.txt";
         File file = new File(path);
 
@@ -31,11 +34,12 @@ public class FileContentConverter {
             String line = fileRead.nextLine();
             if (line.contains(",")) {
                 String sub = line.substring(line.indexOf(',') + 1);
+                System.out.println(sub);
                 if (sub.contains(",")) {
                     String[] a = line.split(",");
-                    entry.setSiteName(a[0]);
-                    entry.setUserName(a[1]);
-                    entry.setPassword(a[2]);
+                    entry.setSiteName(dec.convert(a[0], 'd'));
+                    entry.setUserName(dec.convert(a[1], 'd'));
+                    entry.setPassword(dec.convert(a[2], 'd'));
                     this.sites.add(entry);
 
                 } else {

@@ -106,8 +106,6 @@ public class GUIEditSite implements IGUIClass
         UserNamePassword siteUNP = (UserNamePassword)args[0];
         String siteName = siteUNP.getSiteName();
         
-
-        
         title.setText("");
         title.setText(siteName);
         title.setFont(new Font(font, 24));
@@ -151,9 +149,16 @@ public class GUIEditSite implements IGUIClass
             
                 @Override
                 public void handle(MouseEvent event) {
+                    
+                    siteUNP.setUserName(entryUserName.getText());
+                    siteUNP.setPassword(entryPassword.getText());
+                    System.out.println(entryUserName.getText() + " " + entryPassword.getText());
                     GUISitePage sitePage = (GUISitePage)args[3];
                     sitePage.GUICode(args);
                     sitePage.show((Stage)args[1]);
+                    
+                    
+
                     }
             });
         
