@@ -248,7 +248,6 @@ public class GUISitePage implements IGUIClass {
     }
 
     public static void editList(UserNamePassword yes, String sitename) throws IOException {
-        System.out.println("AAAAAAAAAAAA");
         RSA dec = new RSA();
         String path = "src/CipherSecurity/LockedUpSaves.txt";
         File file = new File(path);
@@ -259,7 +258,6 @@ public class GUISitePage implements IGUIClass {
             if (current.getSiteName().equals(sitename)) {
                 current.setUserName(yes.getUserName());
                 current.setPassword(yes.getPassword());
-                System.out.println(siteList.get(0).getUserName());
             }
 
             try {
@@ -280,7 +278,40 @@ public class GUISitePage implements IGUIClass {
         }
 
     }
+public static void deleteThis(UserNamePassword yes, String sitename) throws IOException {
+        RSA dec = new RSA();
+        String path = "src/CipherSecurity/LockedUpSaves.txt";
+        File file = new File(path);
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
+        writer.write((""));
+        writer.close();
+        for (UserNamePassword current : siteList) {
+            if (current.getSiteName().equals(sitename)) {
+                current.setSiteName("");
+                current.setUserName("");
+                current.setPassword("");
+            }
 
+            try {
+
+                writer = new BufferedWriter(new FileWriter(file, true));
+
+                String sName = (dec.convert(current.getSiteName(), 'e'));
+                String uName = (dec.convert(current.getUserName(), 'e'));
+                String pWord = (dec.convert(current.getPassword(), 'e'));
+
+                if (!(current.getSiteName().equals(""))) {
+                writer.write(String.format("%s,%s,%s", sName, uName, pWord));
+                writer.newLine();
+                }
+                writer.close();
+            } catch (IOException e) {
+                System.out.println("Can't write, too full");
+            }
+
+        }
+
+    }
     @Override
     public final void show(Stage s) {
         //s.setTitle("Cipher Security: Password Saver");

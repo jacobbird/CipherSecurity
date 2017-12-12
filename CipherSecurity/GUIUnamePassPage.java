@@ -7,9 +7,12 @@
 // Shows Username and Password for Site (Of Profile Username)
 package CipherSecurity.CipherSecurity;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -58,7 +61,8 @@ public class GUIUnamePassPage implements IGUIClass {
         
         System.out.println("Incoming Profile Username (from SitePage): " + args[0]);
         
-        
+        UserNamePassword siteUNP = (UserNamePassword)args[0];
+        String siteName = siteUNP.getSiteName();
         
         Label label = new Label();
         //label.setText("Cipher Security");
@@ -84,7 +88,11 @@ public class GUIUnamePassPage implements IGUIClass {
             
                 @Override
                 public void handle(MouseEvent event) {
-                    // Remove from FileSystem
+                    try {
+                        GUISitePage.deleteThis((new UserNamePassword("","","")), siteName);
+                    } catch (IOException ex) {
+                        Logger.getLogger(GUIUnamePassPage.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     GUISitePage sitePage = (GUISitePage)args[3];
                     sitePage.GUICode(args);
                     sitePage.show((Stage)args[1]);

@@ -39,7 +39,9 @@ public class Key {
 
 			n = prime1 * prime2;
 			phi = (prime1 - 1) * (prime2 - 1);
-			
+			if(phi == 0){
+                            return text;
+                        }
 			Random rnd = new Random(n);
 			do {
 				e = rnd.nextInt(32767) + 1 % phi;

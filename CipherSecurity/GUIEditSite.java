@@ -5,7 +5,10 @@
  */
 package CipherSecurity.CipherSecurity;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -151,7 +154,11 @@ public class GUIEditSite implements IGUIClass
                 public void handle(MouseEvent event) {
                     siteUNP.setUserName(entryUserName.getText());
                     siteUNP.setPassword(entryPassword.getText());
-                    GUISitePage.editList(siteUNP, siteName);
+                    try {
+                        GUISitePage.editList(siteUNP, siteName);
+                    } catch (IOException ex) {
+                        Logger.getLogger(GUIEditSite.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     GUISitePage sitePage = (GUISitePage)args[3];
                     sitePage.GUICode(args);
                     sitePage.show((Stage)args[1]);
