@@ -247,23 +247,23 @@ public class GUISitePage implements IGUIClass {
         return pressables;
     }
 
-    public static void editList(UserNamePassword yes, String sitename) {
+    public static void editList(UserNamePassword yes, String sitename) throws IOException {
+        System.out.println("AAAAAAAAAAAA");
+        RSA dec = new RSA();
+        String path = "src/CipherSecurity/LockedUpSaves.txt";
+        File file = new File(path);
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
+        writer.write((""));
+        writer.close();
         for (UserNamePassword current : siteList) {
             if (current.getSiteName().equals(sitename)) {
                 current.setUserName(yes.getUserName());
                 current.setPassword(yes.getPassword());
                 System.out.println(siteList.get(0).getUserName());
             }
-            System.out.println("AAAAAAAAAAAA");
-            RSA dec = new RSA();
-            String path = "src/CipherSecurity/LockedUpSaves.txt";
-            File file = new File(path);
 
             try {
 
-                BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
-                writer.write((""));
-                writer.close();
                 writer = new BufferedWriter(new FileWriter(file, true));
 
                 String sName = (dec.convert(current.getSiteName(), 'e'));
@@ -276,9 +276,9 @@ public class GUISitePage implements IGUIClass {
             } catch (IOException e) {
                 System.out.println("Can't write, too full");
             }
-            
+
         }
-        
+
     }
 
     @Override
