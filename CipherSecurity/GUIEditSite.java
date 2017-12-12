@@ -149,10 +149,9 @@ public class GUIEditSite implements IGUIClass
             
                 @Override
                 public void handle(MouseEvent event) {
-                    
                     siteUNP.setUserName(entryUserName.getText());
                     siteUNP.setPassword(entryPassword.getText());
-                    System.out.println(entryUserName.getText() + " " + entryPassword.getText());
+                    GUISitePage.editList(siteUNP, siteName);
                     GUISitePage sitePage = (GUISitePage)args[3];
                     sitePage.GUICode(args);
                     sitePage.show((Stage)args[1]);

@@ -19,7 +19,7 @@ import java.util.Scanner;
  */
 public class FileContentConverter {
 
-    private List<UserNamePassword> sites = new ArrayList<UserNamePassword>();
+    public List<UserNamePassword> sites = new ArrayList<UserNamePassword>();
 
     public FileContentConverter(String fileName) throws FileNotFoundException {
         //Testing code
@@ -58,5 +58,8 @@ public class FileContentConverter {
         this.sites.add(unp);
 
     }
-
+    
+    public void clearList() {
+        this.sites.clear();
+    }
 }
