@@ -92,7 +92,6 @@ public class GUISitePage implements IGUIClass {
                 System.out.println("Outgoing Profile Username (to New Site): " + args[0]);
 
                 GUINewSite GUINSPage = (GUINewSite) args[7];
-
                 GUINSPage.GUICode(args);
                 GUINSPage.show((Stage) args[1]);
 
@@ -312,6 +311,39 @@ public static void deleteThis(UserNamePassword yes, String sitename) throws IOEx
         }
 
     }
+
+public static void addNew(UserNamePassword yes) throws IOException {
+        RSA dec = new RSA();
+        String path = "src/CipherSecurity/LockedUpSaves.txt";
+        File file = new File(path);
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
+        writer.write((""));
+        writer.close();
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        siteList.add(yes);
+        System.out.println(yes.getSiteName());
+        for (UserNamePassword current : siteList) {
+            try {
+                System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                writer = new BufferedWriter(new FileWriter(file, true));
+
+                String sName = (dec.convert(current.getSiteName(), 'e'));
+                String uName = (dec.convert(current.getUserName(), 'e'));
+                String pWord = (dec.convert(current.getPassword(), 'e'));
+
+                if (!(current.getSiteName().equals(""))) {
+                writer.write(String.format("%s,%s,%s", sName, uName, pWord));
+                writer.newLine();
+                }
+                writer.close();
+            } catch (IOException e) {
+                System.out.println("Can't write, too full");
+            }
+
+        }
+
+    }
+
     @Override
     public final void show(Stage s) {
         //s.setTitle("Cipher Security: Password Saver");
