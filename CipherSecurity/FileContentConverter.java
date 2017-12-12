@@ -24,10 +24,13 @@ public class FileContentConverter {
     public FileContentConverter(String fileName) throws FileNotFoundException {
         //Testing code
         RSA dec = new RSA();
-        String path = "src/CipherSecurity/LockedUpSaves.txt";
+        String path = "src/CipherSecurity/" + GUILogin.getUserNameString() + ".txt";
         File file = new File(path);
-
-        Scanner fileRead = new Scanner(file);
+        
+        boolean exists = file.exists();
+        
+        if(exists){
+            Scanner fileRead = new Scanner(file);
         while (fileRead.hasNext()) {
             UserNamePassword entry = new UserNamePassword();
 
@@ -46,6 +49,7 @@ public class FileContentConverter {
                     System.out.println("Nooooooooooooooo");
                 }
             }
+        }
         }
 
     }

@@ -248,8 +248,9 @@ public class GUISitePage implements IGUIClass {
 
     public static void editList(UserNamePassword yes, String sitename) throws IOException {
         RSA dec = new RSA();
-        String path = "src/CipherSecurity/LockedUpSaves.txt";
+        String path = "src/CipherSecurity/" + GUILogin.getUserNameString() + ".txt";
         File file = new File(path);
+        
         BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
         writer.write((""));
         writer.close();
@@ -279,7 +280,7 @@ public class GUISitePage implements IGUIClass {
     }
 public static void deleteThis(UserNamePassword yes, String sitename) throws IOException {
         RSA dec = new RSA();
-        String path = "src/CipherSecurity/LockedUpSaves.txt";
+        String path = "src/CipherSecurity/" + GUILogin.getUserNameString() + ".txt";
         File file = new File(path);
         BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
         writer.write((""));
@@ -314,7 +315,7 @@ public static void deleteThis(UserNamePassword yes, String sitename) throws IOEx
 
 public static void addNew(UserNamePassword yes) throws IOException {
         RSA dec = new RSA();
-        String path = "src/CipherSecurity/LockedUpSaves.txt";
+        String path = "src/CipherSecurity/" + GUILogin.getUserNameString() + ".txt";
         File file = new File(path);
         BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
         writer.write((""));
