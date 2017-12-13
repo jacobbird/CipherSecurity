@@ -9,8 +9,6 @@ package CipherSecurity.CipherSecurity;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
@@ -34,7 +32,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -65,7 +62,7 @@ public class GUIUnamePassPage implements IGUIClass {
         String siteName = siteUNP.getSiteName();
         
         Label label = new Label();
-        //label.setText("Cipher Security");
+      
         
         Button editBtn = new Button();
         editBtn.setText("Edit");
@@ -112,9 +109,7 @@ public class GUIUnamePassPage implements IGUIClass {
             }
         });
         
-//        StackPane root = new StackPane();
-//        root.getChildren().add(label);
-//        root.getChildren().add(btn);
+
         
         GridPane resultsPane = new GridPane();
         VBox siteVBox = new VBox();
@@ -173,10 +168,10 @@ public class GUIUnamePassPage implements IGUIClass {
         
         UserNamePassword usrNamePass = (UserNamePassword)args[0];
         
-        // NEW
+       
         label.setText(usrNamePass.getSiteName());      // Read in Site Name
         label.setFont(lblFont);
-        // END NEW
+        
         
         label.setTextFill(Color.WHITE);
         settingsOpenPane.setLeft(label);
@@ -218,20 +213,16 @@ public class GUIUnamePassPage implements IGUIClass {
         passwordText.setFont(Font.font(font, FontWeight.BOLD, 20));
         resultsPane.add(passwordText, 2, 1);
         
-        //UserNamePassword usrNamePass = (UserNamePassword)args[0];
+      
         
         usrNameText.setText(usrNamePass.getUserName());
         passwordText.setText(usrNamePass.getPassword());
 
-        //Button[] btnArr = (Button[])siteBtns.toArray();
+       
         pressables.add(backBtn);
         pressables.add(editBtn);
         
-        
-        
-        BackgroundImage myBI= new BackgroundImage(new javafx.scene.image.Image(getClass().getResource("Background.jpg").toExternalForm()),
-        BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
-        BackgroundSize.DEFAULT);
+
         
        
         borderRoot.setStyle("-fx-background-color: white");
@@ -239,19 +230,13 @@ public class GUIUnamePassPage implements IGUIClass {
         // Other Colors
         // #f0f8ff
         // lightblue
-        
-        
-        
-        // BG to Image
-        //borderRoot.setBackground(new Background(myBI));
-        
-        
+
         return pressables;
     }
 
     @Override
     public void show(Stage s) {
-        //s.setTitle("Cipher Security: Password Saver");
+
         s.setTitle("PassSafe: Password Saver");
         s.setScene(scene);
         s.show();

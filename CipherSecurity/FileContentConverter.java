@@ -22,8 +22,7 @@ public class FileContentConverter {
     public List<UserNamePassword> sites = new ArrayList<UserNamePassword>();
 
     public FileContentConverter(String fileName) throws FileNotFoundException {
-        //Testing code
-        //RSA dec = new RSA();
+        
         String path = "./" + GUILogin.getUserNameString() + ".txt";
         File file = new File(path);
         

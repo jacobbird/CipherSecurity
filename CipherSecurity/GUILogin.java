@@ -49,16 +49,14 @@ public class GUILogin implements IGUIClass{
     // Gets for RSA Stuff
     public static String getUserNameString()
     {
-        // Won't do what you think
-        // Will be null until User presses Login
-        // Will register String change once backed out
+
         return GUILogin.entryUserNameString;
     }
     public String getPasswordString()
     {
         return this.entryPasswordString;
     }
-    // End Gets for RSA Stuff
+
     
     @Override
     public ArrayList<Object> GUICode(Object[] args) {
@@ -104,7 +102,6 @@ public class GUILogin implements IGUIClass{
         PasswordField entryPassword = new PasswordField();
         entryVBox5.getChildren().add(entryPassword);
         
-        //Button go = new Button("go!");  // Login
         Button go = new Button("Login");  // Login
         
         go.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -115,21 +112,12 @@ public class GUILogin implements IGUIClass{
                     // Set the Username and Password
                     entryUserNameString = entryUserName.getText();  // Set Username
                     entryPasswordString = entryPassword.getText();
-                    System.out.println("Incoming Profile Username(Textfield): " + getUserNameString());
-                    //System.out.println(getPasswordString());
+        
                     
                     args[0] = getUserNameString();
                     
                     System.out.println("Outgoing Profile Username(to SitePage): " + args[0]);
-                    //System.out.println(args[1]);
-                    //System.out.println(args[2]);
-                    //System.out.println(args[3]);
-                    
-                    
-                    
-                    
-                    //System.out.println(entryUserName.getText());  // Returns Username Entry
-                    //System.out.println(entryPassword.getText());  // Returns Password Entry
+
                     GUISitePage sitePage = (GUISitePage)args[3];
                     sitePage.GUICode(args);
                     sitePage.show((Stage)args[1]);
@@ -140,7 +128,7 @@ public class GUILogin implements IGUIClass{
         pressables.add(go);
         entryVBox7.setPadding(new Insets(2,2,2,2));
         
-        //Button newFile = new Button("new"); // New User
+
         Button newFile = new Button("New User"); // New User
         
         newFile.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -166,50 +154,7 @@ public class GUILogin implements IGUIClass{
         entryHBox2.setAlignment(Pos.CENTER);
         entryHBox3.setAlignment(Pos.BASELINE_CENTER);
         
-        /*StackPane entryPane = new StackPane();
-        VBox entryBox = new VBox();
-        HBox entryHBox = new HBox();
-        HBox entryHBox2 = new HBox();
-        HBox entryHBox3 = new HBox();
-        VBox entryVBox2 = new VBox();
-        entryVBox2.prefWidth(40);
-        VBox entryVBox3 = new VBox();
-        entryVBox3.prefWidth(40);
-        VBox entryVBox4 = new VBox();
-        entryVBox2.prefWidth(40);
-        VBox entryVBox5 = new VBox();
-        entryVBox3.prefWidth(40);
-        VBox entryVBox6 = new VBox();
-        VBox entryVBox7 = new VBox();
         
-        entryHBox.getChildren().addAll(entryVBox2, entryVBox3);
-        entryHBox2.getChildren().addAll(entryVBox4, entryVBox5);
-        entryBox.getChildren().addAll(entryHBox, entryHBox2, entryHBox3);
-        entryPane.getChildren().add(entryBox);
-        
-        Label entryUNLabel = new Label("User Name: ");
-        entryUNLabel.setMinWidth(70);
-        entryVBox2.getChildren().add(entryUNLabel);
-        entryVBox2.setAlignment(Pos.CENTER_RIGHT);
-        
-        TextField entryUserName = new TextField();
-        entryVBox3.getChildren().add(entryUserName);
-        
-        Label entryPWLabel = new Label("Password: ");
-        entryPWLabel.setMinWidth(70);
-        entryVBox4.getChildren().add(entryPWLabel);
-        entryVBox4.setAlignment(Pos.CENTER_RIGHT);
-        
-        PasswordField entryPassword = new PasswordField();
-        entryVBox5.getChildren().add(entryPassword);
-        
-        Button go = new Button("go!");
-        entryVBox7.getChildren().add(go);
-        entryVBox7.setPadding(new Insets(2,2,2,2));
-        Button newFile = new Button("new");
-        entryVBox6.getChildren().add(newFile);
-        entryVBox6.setPadding(new Insets(2,2,2,2));
-        entryHBox3.getChildren().addAll(entryVBox6,entryVBox7);*/
         
         entryBox.setAlignment(Pos.CENTER);
         entryHBox.setPadding(new Insets(5,5,5,5));
@@ -232,7 +177,6 @@ public class GUILogin implements IGUIClass{
 
     @Override
     public void show(Stage s) {
-        //s.setTitle("Cipher Security: Password Saver");
         s.setTitle("PassSafe: Password Saver");
         s.setScene(scene);
         s.show();

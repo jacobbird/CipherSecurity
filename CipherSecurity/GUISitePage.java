@@ -5,12 +5,9 @@
  */
 package CipherSecurity.CipherSecurity;
 
-import CipherSecurity.Methods.RSA;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -36,7 +33,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -67,8 +63,8 @@ public class GUISitePage implements IGUIClass {
         // Find out the Username System
         System.out.println("Incoming Profile Username(from Login/Textfield): " + args[0]);
 
+        // Border Label
         Label label = new Label();
-        //label.setText("Cipher Security");
         label.setText("Stored Sites");
         String font = "Times New Roman";
 
@@ -99,9 +95,7 @@ public class GUISitePage implements IGUIClass {
             }
         });
 
-//        StackPane root = new StackPane();
-//        root.getChildren().add(label);
-//        root.getChildren().add(btn);
+
         GridPane resultsPane = new GridPane();
         VBox siteVBox = new VBox();
 
@@ -153,7 +147,7 @@ public class GUISitePage implements IGUIClass {
 
         siteVBox.setPadding(new Insets(10, 10, 10, 10));
 
-        //siteScrPane.setContent(siteVBox);
+        
         resultsPane.setHgap(10);
         resultsPane.setVgap(10);
         resultsPane.setPadding(new Insets(20, 20, 20, 20));
@@ -198,10 +192,9 @@ public class GUISitePage implements IGUIClass {
 
             // usrNamePass is iterator through Converted File
             UserNamePassword usrNamePass = (UserNamePassword) siteListIter.next();
-            // New
+            
             siteTxt.setFont(new Font(font, 24.00));
-            //siteTxt.setFill(Color.STEELBLUE);       // Font Color
-            // End New
+           
             siteTxt.setText(usrNamePass.getSiteName());
 
             siteTxt.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -240,14 +233,12 @@ public class GUISitePage implements IGUIClass {
         // #fff5ee          Seashell (Light, light, brown)
         // #fffaf0          More brown white
         // #fffaf0          Floral White (Good)
-        // Set BG to Image
-        //borderRoot.setBackground(new Background(myBI));
-        //Button[] btnArr = (Button[])siteBtns.toArray();
+    
         return pressables;
     }
 
     public static void editList(UserNamePassword yes, String sitename) throws IOException {
-        //RSA dec = new RSA();
+        
         String path = "./" + GUILogin.getUserNameString() + ".txt";
         File file = new File(path);
         
@@ -279,7 +270,7 @@ public class GUISitePage implements IGUIClass {
 
     }
 public static void deleteThis(UserNamePassword yes, String sitename) throws IOException {
-        //RSA dec = new RSA();
+      
         String path = "./" + GUILogin.getUserNameString() + ".txt";
         File file = new File(path);
         BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
@@ -314,7 +305,7 @@ public static void deleteThis(UserNamePassword yes, String sitename) throws IOEx
     }
 
 public static void addNew(UserNamePassword yes) throws IOException {
-        //RSA dec = new RSA();
+        
         String path = "./" + GUILogin.getUserNameString() + ".txt";
         File file = new File(path);
         BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
@@ -347,7 +338,7 @@ public static void addNew(UserNamePassword yes) throws IOException {
 
     @Override
     public final void show(Stage s) {
-        //s.setTitle("Cipher Security: Password Saver");
+        
         s.setTitle("PassSafe: Password Saver");
         s.setScene(scene);
         s.show();

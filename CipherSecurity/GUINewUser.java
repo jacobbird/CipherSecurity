@@ -94,8 +94,9 @@ public class GUINewUser implements IGUIClass{
         PasswordField entryPassword = new PasswordField();
         entryVBox5.getChildren().add(entryPassword);
         
-        //Label entryPWLabel2 = new Label("Password: ");
-        Label entryPWLabel2 = new Label("Other Info: ");
+        // For Password Verification
+        // Passwords must match
+        Label entryPWLabel2 = new Label("Password: ");
         entryPWLabel.setMinWidth(70);
         entryVBox6.getChildren().add(entryPWLabel2);
         entryVBox6.setAlignment(Pos.CENTER_RIGHT);
@@ -103,7 +104,6 @@ public class GUINewUser implements IGUIClass{
         PasswordField entryPassword2 = new PasswordField();
         entryVBox7.getChildren().add(entryPassword2);
         
-        //Button go = new Button("go!");  // New User "Profile"
         Button go = new Button("Create");  // New User "Profile"
         
         go.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -132,58 +132,12 @@ public class GUINewUser implements IGUIClass{
         entryHBox4.setPadding(new Insets(5,5,5,5));
         entryHBox4.setAlignment(Pos.CENTER);
         
-        /*StackPane entryPane = new StackPane();
-        VBox entryBox = new VBox();
-        HBox entryHBox = new HBox();
-        HBox entryHBox2 = new HBox();
-        HBox entryHBox3 = new HBox();
-        VBox entryVBox2 = new VBox();
-        entryVBox2.prefWidth(40);
-        VBox entryVBox3 = new VBox();
-        entryVBox3.prefWidth(40);
-        VBox entryVBox4 = new VBox();
-        entryVBox2.prefWidth(40);
-        VBox entryVBox5 = new VBox();
-        entryVBox3.prefWidth(40);
-        VBox entryVBox6 = new VBox();
-        VBox entryVBox7 = new VBox();
         
-        entryHBox.getChildren().addAll(entryVBox2, entryVBox3);
-        entryHBox2.getChildren().addAll(entryVBox4, entryVBox5);
-        entryBox.getChildren().addAll(entryHBox, entryHBox2, entryHBox3);
-        entryPane.getChildren().add(entryBox);
-        
-        Label entryUNLabel = new Label("User Name: ");
-        entryUNLabel.setMinWidth(70);
-        entryVBox2.getChildren().add(entryUNLabel);
-        entryVBox2.setAlignment(Pos.CENTER_RIGHT);
-        
-        TextField entryUserName = new TextField();
-        entryVBox3.getChildren().add(entryUserName);
-        
-        Label entryPWLabel = new Label("Password: ");
-        entryPWLabel.setMinWidth(70);
-        entryVBox4.getChildren().add(entryPWLabel);
-        entryVBox4.setAlignment(Pos.CENTER_RIGHT);
-        
-        PasswordField entryPassword = new PasswordField();
-        entryVBox5.getChildren().add(entryPassword);
-        
-        Button go = new Button("go!");
-        entryVBox7.getChildren().add(go);
-        entryVBox7.setPadding(new Insets(2,2,2,2));
-        Button newFile = new Button("new");
-        entryVBox6.getChildren().add(newFile);
-        entryVBox6.setPadding(new Insets(2,2,2,2));
-        entryHBox3.getChildren().addAll(entryVBox6,entryVBox7);*/ 
         
         BackgroundImage myBI= new BackgroundImage(new javafx.scene.image.Image(getClass().getResource("Background.jpg").toExternalForm()),
         BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
           BackgroundSize.DEFAULT);
 
-        
-        
-        //entryPane.setStyle("-fx-background-color: lightblue");
         
         entryPane.setBackground(new Background(myBI));
         return pressables;
@@ -192,7 +146,6 @@ public class GUINewUser implements IGUIClass{
 
     @Override
     public void show(Stage s) {
-        //s.setTitle("Cipher Security: Password Saver");
         s.setTitle("PassSafe: Password Saver");
         s.setScene(scene);
         s.show();
