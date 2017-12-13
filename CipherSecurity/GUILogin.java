@@ -38,7 +38,7 @@ public class GUILogin implements IGUIClass{
     // To access Outside of Login Class
     static String entryUserNameString;
     String entryPasswordString;
-    RSA user = new RSA();
+    static RSA dec = new RSA();
     
     public GUILogin(){
         entryPane = new StackPane();

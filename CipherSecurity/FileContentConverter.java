@@ -23,8 +23,8 @@ public class FileContentConverter {
 
     public FileContentConverter(String fileName) throws FileNotFoundException {
         //Testing code
-        RSA dec = new RSA();
-        String path = "src/CipherSecurity/" + GUILogin.getUserNameString() + ".txt";
+        //RSA dec = new RSA();
+        String path = "./" + GUILogin.getUserNameString() + ".txt";
         File file = new File(path);
         
         boolean exists = file.exists();
@@ -40,9 +40,9 @@ public class FileContentConverter {
                 System.out.println(sub);
                 if (sub.contains(",")) {
                     String[] a = line.split(",");
-                    entry.setSiteName(dec.convert(a[0], 'd'));
-                    entry.setUserName(dec.convert(a[1], 'd'));
-                    entry.setPassword(dec.convert(a[2], 'd'));
+                    entry.setSiteName(GUILogin.dec.convert(a[0], 'd'));
+                    entry.setUserName(GUILogin.dec.convert(a[1], 'd'));
+                    entry.setPassword(GUILogin.dec.convert(a[2], 'd'));
                     this.sites.add(entry);
 
                 } else {

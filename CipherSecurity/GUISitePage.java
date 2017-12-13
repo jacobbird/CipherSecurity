@@ -247,8 +247,8 @@ public class GUISitePage implements IGUIClass {
     }
 
     public static void editList(UserNamePassword yes, String sitename) throws IOException {
-        RSA dec = new RSA();
-        String path = "src/CipherSecurity/" + GUILogin.getUserNameString() + ".txt";
+        //RSA dec = new RSA();
+        String path = "./" + GUILogin.getUserNameString() + ".txt";
         File file = new File(path);
         
         BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
@@ -264,9 +264,9 @@ public class GUISitePage implements IGUIClass {
 
                 writer = new BufferedWriter(new FileWriter(file, true));
 
-                String sName = (dec.convert(current.getSiteName(), 'e'));
-                String uName = (dec.convert(current.getUserName(), 'e'));
-                String pWord = (dec.convert(current.getPassword(), 'e'));
+                String sName = (GUILogin.dec.convert(current.getSiteName(), 'e'));
+                String uName = (GUILogin.dec.convert(current.getUserName(), 'e'));
+                String pWord = (GUILogin.dec.convert(current.getPassword(), 'e'));
 
                 writer.write(String.format("%s,%s,%s", sName, uName, pWord));
                 writer.newLine();
@@ -279,8 +279,8 @@ public class GUISitePage implements IGUIClass {
 
     }
 public static void deleteThis(UserNamePassword yes, String sitename) throws IOException {
-        RSA dec = new RSA();
-        String path = "src/CipherSecurity/" + GUILogin.getUserNameString() + ".txt";
+        //RSA dec = new RSA();
+        String path = "./" + GUILogin.getUserNameString() + ".txt";
         File file = new File(path);
         BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
         writer.write((""));
@@ -296,9 +296,9 @@ public static void deleteThis(UserNamePassword yes, String sitename) throws IOEx
 
                 writer = new BufferedWriter(new FileWriter(file, true));
 
-                String sName = (dec.convert(current.getSiteName(), 'e'));
-                String uName = (dec.convert(current.getUserName(), 'e'));
-                String pWord = (dec.convert(current.getPassword(), 'e'));
+                String sName = (GUILogin.dec.convert(current.getSiteName(), 'e'));
+                String uName = (GUILogin.dec.convert(current.getUserName(), 'e'));
+                String pWord = (GUILogin.dec.convert(current.getPassword(), 'e'));
 
                 if (!(current.getSiteName().equals(""))) {
                 writer.write(String.format("%s,%s,%s", sName, uName, pWord));
@@ -314,8 +314,8 @@ public static void deleteThis(UserNamePassword yes, String sitename) throws IOEx
     }
 
 public static void addNew(UserNamePassword yes) throws IOException {
-        RSA dec = new RSA();
-        String path = "src/CipherSecurity/" + GUILogin.getUserNameString() + ".txt";
+        //RSA dec = new RSA();
+        String path = "./" + GUILogin.getUserNameString() + ".txt";
         File file = new File(path);
         BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
         writer.write((""));
@@ -328,9 +328,9 @@ public static void addNew(UserNamePassword yes) throws IOException {
                 System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                 writer = new BufferedWriter(new FileWriter(file, true));
 
-                String sName = (dec.convert(current.getSiteName(), 'e'));
-                String uName = (dec.convert(current.getUserName(), 'e'));
-                String pWord = (dec.convert(current.getPassword(), 'e'));
+                String sName = (GUILogin.dec.convert(current.getSiteName(), 'e'));
+                String uName = (GUILogin.dec.convert(current.getUserName(), 'e'));
+                String pWord = (GUILogin.dec.convert(current.getPassword(), 'e'));
 
                 if (!(current.getSiteName().equals(""))) {
                 writer.write(String.format("%s,%s,%s", sName, uName, pWord));
