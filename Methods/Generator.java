@@ -2,7 +2,7 @@ package CipherSecurity.Methods;
 
 public class Generator {
 	
-	int isprime(int a)
+	int isprime(int a) //Checks if number is prime by modulo = 1
 	{
 		int i;
 		for (i = 2; i < a; i++){
@@ -12,7 +12,7 @@ public class Generator {
 		return 1;
 	}
 
-	int gcd(int a, int b)
+	int gcd(int a, int b)//Recurrsive operation to find a number thats is GCD 1
 	{
 		if (a == 0)
 			return b;
@@ -21,7 +21,7 @@ public class Generator {
 		return gcd(b, a%b);
 	}
 
-	int getNum(String name){
+	int getNum(String name){ //Takes each characters ASCII value, splits them and adds. Ex 127 - 1 + 2 + 7
 		int sum = 0;
 		for (int i = 0; i<name.length(); i++)
 		{
@@ -35,7 +35,7 @@ public class Generator {
 		return sum;
 	}
 
-	int getPrime(int prime){
+	int getPrime(int prime){ //Checks for prime by iterating by +1 till returned value is 1
 		int primeNum = prime;
 		do {
 			primeNum++;
