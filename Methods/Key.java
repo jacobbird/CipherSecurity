@@ -54,7 +54,7 @@ public class Key {
 				d = rnd.nextInt(32767) + 1 % phi;//Generates a number less than phi
 				//d = phi*rnd.nextInt(32767) + 1;
 
-			} while (((d * e) % phi) != 1); //Gets dencryption key from GCD(e*d,phi) = 1
+			} while (((d * e) % phi) != 1); //Gets decryption key from GCD(e*d,phi) = 1
 		Cryption();//Calls to encrypt or decrypt
 		return text;
 	}
