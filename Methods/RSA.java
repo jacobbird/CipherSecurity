@@ -1,6 +1,6 @@
 package CipherSecurity.Methods;
 import java.util.ArrayList;
-import CipherSecurity.CipherSecurity.GUILogin;
+import CipherSecurity.GUI.GUILogin;
 
 public class RSA {
 	
@@ -11,7 +11,7 @@ public class RSA {
         private String name ="";
 	
 	public String convert(String data, char op) {
-            //GUILogin login = new GUILogin();
+           
             name = GUILogin.getUserNameString(); // Grabs username of app from textfield
 		String data2 = User(data, op, name);
 		return data2;
