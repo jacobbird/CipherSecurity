@@ -144,6 +144,13 @@ public class GUIEditSite implements IGUIClass
                     // Read Textfields and Assign
                     siteUNP.setUserName(entryUserName.getText());
                     siteUNP.setPassword(entryPassword.getText());
+                    if (entryUserName.getText().trim().isEmpty()){//Bug, Does not check empty
+                        siteUNP.setUserName("Empty");
+                    }
+                    
+                    if (entryPassword.getText().trim().isEmpty()){
+                        siteUNP.setPassword("Empty");
+                    }
                     try {
                         GUISitePage.editList(siteUNP, siteName);
                     } catch (IOException ex) {

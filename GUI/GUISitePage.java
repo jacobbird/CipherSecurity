@@ -309,12 +309,10 @@ public static void addNew(UserNamePassword yes) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
         writer.write((""));
         writer.close();
-        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         siteList.add(yes);
         System.out.println(yes.getSiteName());
         for (UserNamePassword current : siteList) {
             try {
-                System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                 writer = new BufferedWriter(new FileWriter(file, true));
 
                 String sName = (GUILogin.dec.convert(current.getSiteName(), 'e'));

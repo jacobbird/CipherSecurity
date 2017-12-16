@@ -38,9 +38,17 @@ public class FileContentConverter {
                 System.out.println(sub);
                 if (sub.contains(",")) {
                     String[] a = line.split(",");
-                    entry.setSiteName(GUILogin.dec.convert(a[0], 'd'));
-                    entry.setUserName(GUILogin.dec.convert(a[1], 'd'));
-                    entry.setPassword(GUILogin.dec.convert(a[2], 'd'));
+                    entry.setSiteName(GUILogin.dec.convert(a[0], 'd')); //Bug, Does not check empty
+                    if (a[1].isEmpty()) {
+                        entry.setUserName("Empty");
+                    } else {
+                        entry.setUserName(GUILogin.dec.convert(a[1], 'd'));
+                    }
+                    if (a[2].isEmpty()) {
+                        entry.setPassword("Empty");
+                    } else {
+                        entry.setPassword(GUILogin.dec.convert(a[2], 'd'));
+                    }
                     this.sites.add(entry);
 
                 } else {

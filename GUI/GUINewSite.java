@@ -147,8 +147,6 @@ public class GUINewSite implements IGUIClass{
                         unp.setSiteName(entrySiteNameT.getText());
                         unp.setUserName(entryUserName.getText());
                         unp.setPassword(entryPassword.getText());
-                        System.out.println(unp.getSiteName());
-                        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                         try {
                             GUISitePage.addNew(unp);
                         } catch (IOException ex) {
