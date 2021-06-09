@@ -3,11 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CipherSecurity;
 
+// Shows Username and Password for Site (Of Profile Username)
+package CipherSecurity.CipherSecurity;
+
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -21,6 +24,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
@@ -37,7 +44,6 @@ import javafx.stage.Stage;
  * @author Jacob
  */
 public class GUIUnamePassPage implements IGUIClass {
-
     BorderPane borderRoot;
     Scene scene;
     
@@ -50,8 +56,13 @@ public class GUIUnamePassPage implements IGUIClass {
     public ArrayList<Object> GUICode(Object[] args) {
         ArrayList<Object> pressables = new ArrayList<Object>();
         
+        System.out.println("Incoming Profile Username (from SitePage): " + args[0]);
+        
+        UserNamePassword siteUNP = (UserNamePassword)args[0];
+        String siteName = siteUNP.getSiteName();
+        
         Label label = new Label();
-        label.setText("Cipher Security");
+      
         
         Button editBtn = new Button();
         editBtn.setText("Edit");
@@ -60,6 +71,7 @@ public class GUIUnamePassPage implements IGUIClass {
             
                 @Override
                 public void handle(MouseEvent event) {
+                    System.out.println("Outgoing Profile Username (to EditSite): " + args[0]);
                     GUIEditSite editPage = (GUIEditSite)args[5];
                     editPage.GUICode(args);
                     editPage.show((Stage)args[1]);
@@ -73,6 +85,11 @@ public class GUIUnamePassPage implements IGUIClass {
             
                 @Override
                 public void handle(MouseEvent event) {
+                    try {
+                        GUISitePage.deleteThis((new UserNamePassword("","","")), siteName);
+                    } catch (IOException ex) {
+                        Logger.getLogger(GUIUnamePassPage.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     GUISitePage sitePage = (GUISitePage)args[3];
                     sitePage.GUICode(args);
                     sitePage.show((Stage)args[1]);
@@ -88,13 +105,11 @@ public class GUIUnamePassPage implements IGUIClass {
             public void handle(ActionEvent event) {
                 GUISitePage siteDisplay = (GUISitePage)args[3];
                 siteDisplay.show((Stage)args[1]);
-                System.out.println("back");
+                System.out.println("Back");
             }
         });
         
-//        StackPane root = new StackPane();
-//        root.getChildren().add(label);
-//        root.getChildren().add(btn);
+
         
         GridPane resultsPane = new GridPane();
         VBox siteVBox = new VBox();
@@ -122,7 +137,7 @@ public class GUIUnamePassPage implements IGUIClass {
         entryHBox2.getChildren().addAll(entryVBox4, entryVBox5);
         entryBox.getChildren().addAll(entryHBox, entryHBox2, entryHBox3);
         
-        
+ 
         Label entryUNLabel = new Label("User Name: ");
         entryUNLabel.setMinWidth(70);
         entryVBox2.getChildren().add(entryUNLabel);
@@ -143,14 +158,20 @@ public class GUIUnamePassPage implements IGUIClass {
         //borderRoot.setCenter(resultsPane);
         borderRoot.setCenter(resultsPane);
         //borderRoot.setLeft(siteScrPane);
-        //borderRoot.setTop(settingsOpenPane);
+        borderRoot.setTop(settingsOpenPane);
         borderRoot.setBottom(editNew);
         borderRoot.setPadding(new Insets(0, 10, 0, 10));
         
         String font = "Times New Roman";
         
         Font lblFont = new Font(font, 32.00);
+        
+        UserNamePassword usrNamePass = (UserNamePassword)args[0];
+        
+       
+        label.setText(usrNamePass.getSiteName());      // Read in Site Name
         label.setFont(lblFont);
+        
         
         label.setTextFill(Color.WHITE);
         settingsOpenPane.setLeft(label);
@@ -192,21 +213,31 @@ public class GUIUnamePassPage implements IGUIClass {
         passwordText.setFont(Font.font(font, FontWeight.BOLD, 20));
         resultsPane.add(passwordText, 2, 1);
         
-        UserNamePassword usrNamePass = (UserNamePassword)args[0];
+      
         
         usrNameText.setText(usrNamePass.getUserName());
         passwordText.setText(usrNamePass.getPassword());
 
-        //Button[] btnArr = (Button[])siteBtns.toArray();
+       
         pressables.add(backBtn);
         pressables.add(editBtn);
         
+
+        
+       
+        borderRoot.setStyle("-fx-background-color: white");
+        
+        // Other Colors
+        // #f0f8ff
+        // lightblue
+
         return pressables;
     }
 
     @Override
     public void show(Stage s) {
-        s.setTitle("Cipher Security: Password Saver");
+
+        s.setTitle("PassSafe: Password Saver");
         s.setScene(scene);
         s.show();
     }
